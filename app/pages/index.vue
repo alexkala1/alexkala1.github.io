@@ -3,5 +3,6 @@
     <HeroSection />
     <ProjectsSection />
     <CvSection />
+    <ContactForm />
   </div>
 </template>
