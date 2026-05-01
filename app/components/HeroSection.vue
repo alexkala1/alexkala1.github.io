@@ -12,8 +12,11 @@
       finance tracker that actually makes sense.
     </p>
 
-    <p class="hero-location items-center">
-      <UIcon name="i-lucide-map-pin" aria-hidden="true" size="lg" /> Thessaloniki, Greece
+    <p class="hero-location" aria-label="Based in Thessaloniki, Greece">
+      <span class="location-icon-wrap" aria-hidden="true">
+        <UIcon name="i-lucide-map-pin" class="hero-location-icon" />
+      </span>
+      <span>Thessaloniki, Greece</span>
     </p>
 
     <div class="hero-actions">

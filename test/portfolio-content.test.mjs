@@ -87,4 +87,22 @@ describe('portfolio content and structure', () => {
     assert.match(projects, /theme-badge--accent/)
     assert.match(projects, /theme-badge--public/)
   })
+
+  it('renders visible theme toggle and decorated location affordances', () => {
+    const css = read('app/assets/css/main.css')
+    const layout = read('app/layouts/default.vue')
+    const hero = read('app/components/HeroSection.vue')
+
+    assert.match(layout, /theme-toggle-button/)
+    assert.match(layout, /theme-toggle-icon/)
+    assert.match(layout, /<UIcon\s+v-show="!isDark"\s+name="i-lucide-sun"/)
+    assert.match(layout, /<UIcon\s+v-show="isDark"\s+name="i-lucide-moon"/)
+    assert.doesNotMatch(layout, /:name="isDark \? 'i-lucide-moon' : 'i-lucide-sun'"/)
+    assert.doesNotMatch(layout, /:icon="isDark \? 'i-lucide-moon' : 'i-lucide-sun'"/)
+    assert.match(css, /\.theme-toggle-icon/)
+    assert.match(css, /\.theme-toggle-icon--hidden/)
+    assert.match(hero, /location-icon-wrap/)
+    assert.match(hero, /hero-location-icon/)
+    assert.match(css, /\.location-icon-wrap/)
+  })
 })

@@ -19,13 +19,36 @@
           </UButton>
           <ClientOnly>
             <UButton
-              :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
               color="neutral"
               variant="outline"
-              class="theme-button theme-button--outline theme-icon-button"
+              class="theme-button theme-button--outline theme-icon-button theme-toggle-button"
               :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
               @click="isDark = !isDark"
-            />
+            >
+              <UIcon
+                v-show="!isDark"
+                name="i-lucide-sun"
+                class="theme-toggle-icon"
+                aria-hidden="true"
+              />
+              <UIcon
+                v-show="isDark"
+                name="i-lucide-moon"
+                class="theme-toggle-icon"
+                aria-hidden="true"
+              />
+            </UButton>
+            <template #fallback>
+              <UButton
+                color="neutral"
+                variant="outline"
+                class="theme-button theme-button--outline theme-icon-button theme-toggle-button"
+                aria-label="Switch color mode"
+              >
+                <UIcon name="i-lucide-sun" class="theme-toggle-icon" aria-hidden="true" />
+                <UIcon name="i-lucide-moon" class="theme-toggle-icon theme-toggle-icon--hidden" aria-hidden="true" />
+              </UButton>
+            </template>
           </ClientOnly>
         </div>
       </nav>
