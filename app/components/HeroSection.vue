@@ -21,11 +21,12 @@
 
     <div class="hero-actions">
       <UButton
-        to="#projects"
+        type="button"
         size="xl"
         color="primary"
         icon="i-lucide-arrow-down"
         class="theme-button theme-button--primary"
+        @click="scrollToSection('projects')"
       >
         See the work
       </UButton>
@@ -67,3 +68,7 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { scrollToSection } = useSectionScroll()
+</script>

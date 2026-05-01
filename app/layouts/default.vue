@@ -8,13 +8,34 @@
         </NuxtLink>
 
         <div class="nav-links">
-          <UButton to="#projects" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+          <UButton
+            type="button"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="theme-button theme-button--ghost nav-section-link"
+            @click="scrollToSection('projects')"
+          >
             Projects
           </UButton>
-          <UButton to="#cv" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+          <UButton
+            type="button"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="theme-button theme-button--ghost nav-section-link"
+            @click="scrollToSection('cv')"
+          >
             Experience
           </UButton>
-          <UButton to="#contact" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+          <UButton
+            type="button"
+            variant="ghost"
+            color="neutral"
+            size="sm"
+            class="theme-button theme-button--ghost nav-section-link"
+            @click="scrollToSection('contact')"
+          >
             Contact
           </UButton>
           <ClientOnly>
@@ -66,6 +87,7 @@
 
 <script setup lang="ts">
 const colorMode = useColorMode()
+const { scrollToSection } = useSectionScroll()
 
 const isDark = computed({
   get: () => colorMode.value === 'dark',

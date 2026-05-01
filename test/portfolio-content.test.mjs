@@ -36,6 +36,7 @@ describe('portfolio content and structure', () => {
     assert.match(projectsData, /Aletheia/)
     assert.match(projectsData, /track-a-lot/i)
     assert.match(projectsData, /Nuxt Visualizer/)
+    assert.match(projectsData, /https:\/\/alexkala1\.github\.io\/nuxt-visualizer\//)
   })
 
   it('keeps CV and contact as clear hiring actions', () => {
@@ -104,5 +105,25 @@ describe('portfolio content and structure', () => {
     assert.match(hero, /location-icon-wrap/)
     assert.match(hero, /hero-location-icon/)
     assert.match(css, /\.location-icon-wrap/)
+  })
+
+  it('scrolls between sections without mutating the URL hash', () => {
+    const layout = read('app/layouts/default.vue')
+    const hero = read('app/components/HeroSection.vue')
+    const scroll = read('app/composables/useSectionScroll.ts')
+    const resetScroll = read('app/plugins/reset-scroll.client.ts')
+
+    assert.doesNotMatch(layout, /to="#(?:projects|cv|contact)"/)
+    assert.doesNotMatch(hero, /to="#projects"/)
+    assert.match(layout, /scrollToSection\('projects'\)/)
+    assert.match(layout, /scrollToSection\('cv'\)/)
+    assert.match(layout, /scrollToSection\('contact'\)/)
+    assert.match(hero, /scrollToSection\('projects'\)/)
+    assert.match(scroll, /scrollIntoView/)
+    assert.doesNotMatch(scroll, /location\.hash/)
+    assert.match(resetScroll, /history\.scrollRestoration = 'manual'/)
+    assert.match(resetScroll, /window\.scrollTo\(\{ top: 0/)
+    assert.match(resetScroll, /window\.addEventListener\('pageshow'/)
+    assert.match(resetScroll, /window\.setTimeout/)
   })
 })

@@ -501,7 +501,7 @@ a {
 }
 
 @media (max-width: 860px) {
-  .nav-links a:nth-child(-n + 3) {
+  .nav-section-link {
     display: none;
   }
 

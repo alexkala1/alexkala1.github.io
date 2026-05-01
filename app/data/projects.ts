@@ -75,6 +75,7 @@ export const projects: Project[] = [
       'Canvas animation loop tied to playback state',
     ],
     stack: ['Nuxt', 'Vue', 'Web Audio API', 'Canvas API'],
+    demo: 'https://alexkala1.github.io/nuxt-visualizer/',
     code: 'https://github.com/alexkala1/nuxt-visualizer',
     featured: true,
   },
