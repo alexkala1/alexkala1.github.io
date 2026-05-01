@@ -1,11 +1,66 @@
 <template>
-  <section class="py-24 flex flex-col items-center text-center">
-    <h1 class="text-6xl font-extrabold mb-6 tracking-tight">Alex Kalaitzidis</h1>
-    <h2 class="text-3xl text-gray-600 dark:text-gray-400 mb-10 font-light">Front-end web developer</h2>
-    <div class="flex gap-6">
-      <UButton icon="i-simple-icons-github" to="http://github.com/alexkala1" target="_blank" color="gray" variant="ghost" size="xl" />
-      <UButton icon="i-simple-icons-linkedin" to="https://www.linkedin.com/in/alex-kalaitzidis-a1386917b/" target="_blank" color="gray" variant="ghost" size="xl" />
-      <UButton icon="i-heroicons-envelope" to="mailto:alexkalaitzidis2@gmail.com" color="gray" variant="ghost" size="xl" />
+  <section class="hero-section">
+    <UBadge color="primary" variant="subtle" class="section-kicker theme-badge theme-badge--accent">
+      Front-end engineer
+    </UBadge>
+
+    <h1 class="hero-title">Alex Kalaitzidis</h1>
+
+    <p class="hero-lede">
+      I build product interfaces with Vue and Nuxt. Lately: a chess tournament
+      platform running live in Greece, a government procurement scanner, and a
+      finance tracker that actually makes sense.
+    </p>
+
+    <p class="hero-location items-center">
+      <UIcon name="i-lucide-map-pin" aria-hidden="true" size="lg" /> Thessaloniki, Greece
+    </p>
+
+    <div class="hero-actions">
+      <UButton
+        to="#projects"
+        size="xl"
+        color="primary"
+        icon="i-lucide-arrow-down"
+        class="theme-button theme-button--primary"
+      >
+        See the work
+      </UButton>
+      <UButton
+        to="mailto:alexkalaitzidis2@gmail.com"
+        size="xl"
+        color="neutral"
+        variant="outline"
+        icon="i-lucide-mail"
+        class="theme-button theme-button--outline"
+      >
+        Get in touch
+      </UButton>
+    </div>
+
+    <div class="social-row" aria-label="External profiles">
+      <UTooltip text="GitHub profile">
+        <UButton
+          icon="i-lucide-github"
+          to="https://github.com/alexkala1"
+          target="_blank"
+          color="neutral"
+          variant="ghost"
+          class="theme-button theme-button--ghost theme-icon-button"
+          aria-label="GitHub profile"
+        />
+      </UTooltip>
+      <UTooltip text="LinkedIn profile">
+        <UButton
+          icon="i-lucide-linkedin"
+          to="https://www.linkedin.com/in/alex-kalaitzidis-a1386917b/"
+          target="_blank"
+          color="neutral"
+          variant="ghost"
+          class="theme-button theme-button--ghost theme-icon-button"
+          aria-label="LinkedIn profile"
+        />
+      </UTooltip>
     </div>
   </section>
 </template>

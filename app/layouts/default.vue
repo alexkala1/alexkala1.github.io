@@ -1,29 +1,53 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-    <header class="p-6 flex justify-between items-center max-w-7xl mx-auto">
-      <div class="font-bold text-2xl tracking-tight">Alex Kalaitzidis</div>
-      <ClientOnly>
-        <UButton
-          :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
-          color="gray"
-          variant="ghost"
-          aria-label="Theme"
-          @click="isDark = !isDark"
-        />
-      </ClientOnly>
+  <div class="portfolio-shell">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <NuxtLink to="/" class="brand-mark" aria-label="Alex Kalaitzidis home">
+          <span>Alex</span>
+          <strong>Kalaitzidis</strong>
+        </NuxtLink>
+
+        <div class="nav-links">
+          <UButton to="#projects" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+            Projects
+          </UButton>
+          <UButton to="#cv" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+            Experience
+          </UButton>
+          <UButton to="#contact" variant="ghost" color="neutral" size="sm" class="theme-button theme-button--ghost">
+            Contact
+          </UButton>
+          <ClientOnly>
+            <UButton
+              :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'"
+              color="neutral"
+              variant="outline"
+              class="theme-button theme-button--outline theme-icon-button"
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="isDark = !isDark"
+            />
+          </ClientOnly>
+        </div>
+      </nav>
     </header>
-    <main class="max-w-7xl mx-auto p-6">
+
+    <main class="site-main">
       <slot />
     </main>
-    <footer class="p-8 mt-12 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-gray-800">
-      &copy; {{ new Date().getFullYear() }} Alex Kalaitzidis. All rights reserved.
+
+    <footer class="site-footer">
+      <p>Designed and built by Alex Kalaitzidis. &copy; {{ new Date().getFullYear() }}</p>
     </footer>
   </div>
 </template>
-<script setup>
+
+<script setup lang="ts">
 const colorMode = useColorMode()
+
 const isDark = computed({
   get: () => colorMode.value === 'dark',
-  set: () => colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  set: () => {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  }
 })
 </script>

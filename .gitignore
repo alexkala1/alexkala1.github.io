@@ -12,6 +12,7 @@ node_modules
 # Logs
 logs
 *.log
+.playwright-mcp/
 
 # Misc
 .DS_Store

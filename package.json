@@ -5,14 +5,21 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "NUXT_APP_BASE_URL=/portfolio/ nuxt generate",
     "preview": "nuxt preview",
+    "test": "node --test test/*.test.mjs",
+    "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/ui": "^4.7.1",
     "nuxt": "^4.4.2",
-    "vue": "^3.5.33",
-    "vue-router": "^5.0.6"
+    "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.105",
+    "@types/node": "^25.6.0",
+    "tailwindcss": "^4.2.4",
+    "vue-tsc": "^3.2.7"
   }
 }
