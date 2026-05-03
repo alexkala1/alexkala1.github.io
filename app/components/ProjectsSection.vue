@@ -55,7 +55,6 @@
             <UButton v-if="project.demo" :to="project.demo" target="_blank" icon="i-lucide-external-link" size="sm" color="primary" variant="solid" class="theme-button theme-button--primary">
               Live
             </UButton>
-            <span v-if="project.isPrivate" class="private-note">Details available in conversation.</span>
           </div>
         </template>
       </UCard>

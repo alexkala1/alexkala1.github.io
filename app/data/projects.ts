@@ -43,6 +43,7 @@ export const projects: Project[] = [
       'Procurement timeline and organisation comparison views',
     ],
     stack: ['Nuxt 4', 'TypeScript', 'Drizzle ORM', 'PostgreSQL', 'PDF.js'],
+    code: 'https://github.com/alexkala1/aletheia',
     featured: true,
   },
   {
